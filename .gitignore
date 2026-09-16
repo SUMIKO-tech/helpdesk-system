@@ -1,0 +1,17 @@
+# .NET
+backend/**/bin/
+backend/**/obj/
+backend/**/*.user
+backend/**/.vs/
+
+# Angular / Node
+frontend/**/node_modules/
+frontend/**/dist/
+frontend/**/.angular/
+
+# Secrets
+backend/**/appsettings.Development.json
+
+# OS files
+.DS_Store
+Thumbs.db
