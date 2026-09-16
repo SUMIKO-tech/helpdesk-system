@@ -1,0 +1,35 @@
+<div style="max-width: 700px; margin: 40px auto;">
+  <div style="display:flex; justify-content:space-between;">
+    <h2>My Tickets</h2>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <div style="border:1px solid #ccc; padding:15px; margin-bottom:20px;">
+    <h3>Create New Ticket</h3>
+    <input [(ngModel)]="title" placeholder="Title" style="width:100%; margin-bottom:8px; padding:6px;" />
+    <textarea [(ngModel)]="description" placeholder="Description" style="width:100%; margin-bottom:8px; padding:6px;"></textarea>
+    <select [(ngModel)]="priority" style="width:100%; margin-bottom:8px; padding:6px;">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <button (click)="createTicket()">Create Ticket</button>
+  </div>
+
+  <table style="width:100%; border-collapse: collapse;">
+    <tr style="background:#eee;">
+      <th style="border:1px solid #ccc; padding:6px;">ID</th>
+      <th style="border:1px solid #ccc; padding:6px;">Title</th>
+      <th style="border:1px solid #ccc; padding:6px;">Priority</th>
+      <th style="border:1px solid #ccc; padding:6px;">Status</th>
+      <th style="border:1px solid #ccc; padding:6px;">Created</th>
+    </tr>
+    <tr *ngFor="let t of tickets">
+      <td style="border:1px solid #ccc; padding:6px;">{{ t.ticketId }}</td>
+      <td style="border:1px solid #ccc; padding:6px;">{{ t.title }}</td>
+      <td style="border:1px solid #ccc; padding:6px;">{{ t.priority }}</td>
+      <td style="border:1px solid #ccc; padding:6px;">{{ t.status }}</td>
+      <td style="border:1px solid #ccc; padding:6px;">{{ t.createdDate | date:'short' }}</td>
+    </tr>
+  </table>
+</div>

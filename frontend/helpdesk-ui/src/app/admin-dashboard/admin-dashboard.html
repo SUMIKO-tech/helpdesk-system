@@ -1,0 +1,33 @@
+<div style="max-width: 900px; margin: 40px auto;">
+  <div style="display:flex; justify-content:space-between;">
+    <h2>All Tickets (Admin)</h2>
+    <button (click)="logout()">Logout</button>
+  </div>
+
+  <table style="width:100%; border-collapse: collapse;">
+    <tr style="background:#eee;">
+      <th style="border:1px solid #ccc; padding:6px;">ID</th>
+      <th style="border:1px solid #ccc; padding:6px;">Title</th>
+      <th style="border:1px solid #ccc; padding:6px;">Created By</th>
+      <th style="border:1px solid #ccc; padding:6px;">Priority</th>
+      <th style="border:1px solid #ccc; padding:6px;">Status</th>
+      <th style="border:1px solid #ccc; padding:6px;">Created</th>
+    </tr>
+    <tr *ngFor="let t of tickets">
+      <td style="border:1px solid #ccc; padding:6px;">{{ t.ticketId }}</td>
+      <td style="border:1px solid #ccc; padding:6px;">{{ t.title }}</td>
+      <td style="border:1px solid #ccc; padding:6px;">{{ t.createdByName }}</td>
+      <td style="border:1px solid #ccc; padding:6px;">
+        <select [ngModel]="t.priority" (ngModelChange)="onPriorityChange(t, $event)">
+          <option *ngFor="let p of priorities" [value]="p">{{ p }}</option>
+        </select>
+      </td>
+      <td style="border:1px solid #ccc; padding:6px;">
+        <select [ngModel]="t.status" (ngModelChange)="onStatusChange(t, $event)">
+          <option *ngFor="let s of statuses" [value]="s">{{ s }}</option>
+        </select>
+      </td>
+      <td style="border:1px solid #ccc; padding:6px;">{{ t.createdDate | date:'short' }}</td>
+    </tr>
+  </table>
+</div>
