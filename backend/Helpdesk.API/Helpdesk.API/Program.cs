@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+// CI test trigger
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
